@@ -5,7 +5,7 @@ import User from "@/models/User"
 import {IUser} from "@/models/User"
 import { compare } from "bcryptjs"
 
-const authOptions: AuthOptions = {
+export const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",

@@ -4,7 +4,44 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a419b44c-79c2-4ff9-aa6f-e4f2b4c39085" name="Changes" comment="" />
+    <list default="true" id="a419b44c-79c2-4ff9-aa6f-e4f2b4c39085" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/actions/genre.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/actions/movie-request.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/actions/movie.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/admin/dashboard/analytics/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/admin/genre/add/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/admin/genre/edit/[id]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/admin/genre/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/admin/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/admin/movies/[id]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/admin/movies/create/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/admin/movies/edit/[id]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/admin/movies/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/admin/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/admin/profile/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/admin/requests/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/admin/header.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/admin/movie-form.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/admin/request-list.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/admin/sidebar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/charts.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/cloudinary.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/Genre.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/Movie.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/MovieRequest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/auth/[...nextauth]/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/auth/[...nextauth]/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/alert.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/alert.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/dropdown-menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/dropdown-menu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/input.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/label.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/label.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/mongodb.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mongodb.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/models/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,7 +65,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "com.codeium.enabled": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/movie_app/app",
+    "last_opened_file_path": "D:/movie_app/models",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -40,10 +77,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\movie_app\app" />
-      <recent name="D:\movie_app\app\api" />
-      <recent name="D:\movie_app" />
+      <recent name="D:\movie_app\models" />
+      <recent name="D:\movie_app\app\actions" />
       <recent name="D:\movie_app\components" />
+      <recent name="D:\movie_app\app" />
+      <recent name="D:\movie_app\lib" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -61,7 +99,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1742585202671</updated>
-      <workItem from="1742585204770" duration="6841000" />
+      <workItem from="1742585204770" duration="10207000" />
     </task>
     <servers />
   </component>
