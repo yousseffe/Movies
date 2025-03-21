@@ -3,9 +3,9 @@
 import connectToDatabase from "@/lib/mongodb"
 import Movie from "@/models/Movie"
 import { getServerSession } from "next-auth"
-import { authOptions } from "../api/auth/[...nextauth]/route"
 import { revalidatePath } from "next/cache"
 import { uploadImage, uploadVideo, deleteImage, deleteVideo } from "@/lib/cloudinary"
+import {authOptions} from "@/lib/authOptions";
 
 export async function createMovie(formData: FormData) {
   try {

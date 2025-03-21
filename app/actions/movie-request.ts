@@ -1,10 +1,10 @@
 "use server"
 import { z } from "zod"
 import { getServerSession } from "next-auth/next"
-import { authOptions } from "@/app/api/auth/[...nextauth]/route"
 import connectToDatabase from "@/lib/mongodb"
 import MovieRequest from "@/models/MovieRequest"
 import User from "@/models/User"
+import {authOptions} from "@/lib/authOptions";
 
 const requestSchema = z.object({
   title: z.string().min(1, "Title is required"),

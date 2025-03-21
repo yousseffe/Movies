@@ -3,9 +3,10 @@
 import connectToDatabase from "@/lib/mongodb"
 import Genre from "@/models/Genre"
 import { getServerSession } from "next-auth"
-import { authOptions } from "../api/auth/[...nextauth]/route"
+
 import { revalidatePath } from "next/cache"
 import { generatePrimeSync } from "node:crypto"
+import {authOptions} from "@/lib/authOptions";
 
 export async function createGenre(formData: FormData) {
   try {
