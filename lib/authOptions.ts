@@ -1,10 +1,10 @@
-import NextAuth, { AuthOptions } from "next-auth"
+import NextAuth, { NextAuthOptions } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 import connectToDatabase from "@/lib/mongodb"
 import User from "@/models/User"
 import { compare } from "bcryptjs"
 
-export const authOptions: AuthOptions = {
+export const authOptions: NextAuthOptions = {
     providers: [
         CredentialsProvider({
             name: "Credentials",
