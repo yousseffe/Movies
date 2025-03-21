@@ -5,7 +5,7 @@ import User from "@/models/User"
 import {IUser} from "@/models/User"
 import { compare } from "bcryptjs"
 
-export const authOptions: AuthOptions = {
+const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -19,7 +19,7 @@ export const authOptions: AuthOptions = {
         }
 
         await connectToDatabase()
-
+        // @ts-ignore
         const user = await User.findOne({ email: credentials.email })
         if (!user) {
           return null

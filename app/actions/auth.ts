@@ -34,6 +34,7 @@ export async function register(
       return { error: "Password must be at least 6 characters long", success: false }
     }
 
+    // @ts-ignore
     const existingUser = await User.findOne({ email })
     if (existingUser) {
       return { error: "User with this email already exists", success: false }
@@ -81,6 +82,7 @@ export async function verifyEmail(token: string) {
   try {
     await connectToDatabase()
 
+    // @ts-ignore
     const user = await User.findOne({
       verificationToken: token,
       verificationTokenExpiry: { $gt: new Date() },
