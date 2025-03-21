@@ -1,7 +1,7 @@
 import type React from "react"
 import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
-// import { Toaster } from "@/components/ui/toaster"
+import { Toaster } from "@/components/ui/toaster"
 import "./globals.css"
 import {AuthProvider} from "@/components/auth-provider";
 
@@ -23,7 +23,7 @@ export default function RootLayout({
         <AuthProvider>
             <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
                 {children}
-                {/*<Toaster />*/}
+                <Toaster />
             </ThemeProvider>
         </AuthProvider>
         </body>
