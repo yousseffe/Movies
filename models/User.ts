@@ -1,4 +1,4 @@
-import mongoose, { Schema, type Document } from "mongoose"
+import mongoose, {Schema, type Document, Model} from "mongoose"
 
 export interface IUser extends Document {
   name: string
@@ -38,6 +38,8 @@ const UserSchema = new Schema<IUser>({
 
 // Create text index for search
 UserSchema.index({ name: "text", email: "text" })
+const User: Model<IUser> = mongoose.models.User || mongoose.model<IUser>("User", UserSchema);
 
-export default mongoose.models.User || mongoose.model<IUser>("User", UserSchema)
+export default User;
+// export default mongoose.models.User || mongoose.model<IUser>("User", UserSchema)
 

@@ -1,10 +1,11 @@
-import NextAuth from "next-auth"
+import NextAuth, {AuthOptions, NextAuthOptions} from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 import  connectToDatabase  from "@/lib/mongodb"
 import User from "@/models/User"
+import {IUser} from "@/models/User"
 import { compare } from "bcryptjs"
 
-export const authOptions = {
+const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -40,16 +41,19 @@ export const authOptions = {
     }),
   ],
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user  }) {
       if (user) {
         token.id = user.id
+        // @ts-ignore
         token.role = user.role
       }
       return token
     },
     async session({ session, token }) {
       if (token) {
+        // @ts-ignore
         session.user.id = token.id as string
+        // @ts-ignore
         session.user.role = token.role as string
       }
       return session
@@ -68,5 +72,5 @@ export const authOptions = {
 
 const handler = NextAuth(authOptions)
 
-export const {GET , POST } = handler
+export { handler as GET, handler as POST }
 
