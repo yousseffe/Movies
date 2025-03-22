@@ -4,7 +4,7 @@ import type { NextRequest } from "next/server"
 
 export async function middleware(request: NextRequest) {
   const token = await getToken({ req: request, secret: process.env.NEXTAUTH_SECRET })
-
+  console.log(token)
   // Check if the path starts with /admin
   if (request.nextUrl.pathname.startsWith("/admin")) {
     console.log("Admin path accessed")
