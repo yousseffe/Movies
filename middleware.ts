@@ -3,8 +3,9 @@ import { getToken } from "next-auth/jwt"
 import type { NextRequest } from "next/server"
 
 export default async function middleware(request: NextRequest) {
+  console.log("Cookies received:", request.cookies.getAll());
   const token = await getToken({ req: request, secret: process.env.NEXTAUTH_SECRET })
-
+  console.log(token)
   // Check if the path starts with /admin
   if (request.nextUrl.pathname.startsWith("/admin")) {
     console.log("Admin path accessed")
