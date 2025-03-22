@@ -6,7 +6,7 @@ import Genre from "@/models/Genre"
 
 import { revalidatePath } from "next/cache"
 import { generatePrimeSync } from "node:crypto"
-import {authOptions} from "@/lib/authOptions";
+// import {authOptions} from "@/lib/authOptions";
 
 export async function createGenre(formData: FormData) {
   try {
