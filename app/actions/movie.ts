@@ -5,7 +5,7 @@ import Movie from "@/models/Movie"
 // import { getServerSession } from "next-auth"
 import { revalidatePath } from "next/cache"
 import { uploadImage, uploadVideo, deleteImage, deleteVideo } from "@/lib/cloudinary"
-import {authOptions} from "@/lib/authOptions";
+// import {authOptions} from "@/lib/authOptions";
 
 export async function createMovie(formData: FormData) {
   try {

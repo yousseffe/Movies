@@ -4,7 +4,7 @@ import { z } from "zod"
 import connectToDatabase from "@/lib/mongodb"
 import MovieRequest from "@/models/MovieRequest"
 import User from "@/models/User"
-import {authOptions} from "@/lib/authOptions";
+// import {authOptions} from "@/lib/authOptions";
 
 const requestSchema = z.object({
   title: z.string().min(1, "Title is required"),
