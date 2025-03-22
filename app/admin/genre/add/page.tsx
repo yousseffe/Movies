@@ -11,7 +11,8 @@ import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { useToast } from "@/hooks/use-toast"
 import Link from "next/link"
-import { createGenre } from "@/app/actions/genre"
+// import { createGenre } from "@/app/actions/genre"
+import {createGenre} from "@/lib/actions/genre";
 
 export default function AddGenrePage() {
   const [isLoading, setIsLoading] = useState(false)

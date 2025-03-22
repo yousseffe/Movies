@@ -11,8 +11,8 @@ import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { useToast } from "@/hooks/use-toast"
 import Link from "next/link"
-import { getGenre, updateGenre } from "@/app/actions/genre"
-
+// import { getGenre, updateGenre } from "@/app/actions/genre"
+ import { getGenre, updateGenre } from "@/lib/actions/genre"
 export default function EditGenrePage({ params }: { params: Promise<{ id: string }> }) {
   const paramsData = use(params);
   const id = paramsData.id;

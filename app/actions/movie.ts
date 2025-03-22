@@ -2,18 +2,18 @@
 
 import connectToDatabase from "@/lib/mongodb"
 import Movie from "@/models/Movie"
-import { getServerSession } from "next-auth"
+// import { getServerSession } from "next-auth"
 import { revalidatePath } from "next/cache"
 import { uploadImage, uploadVideo, deleteImage, deleteVideo } from "@/lib/cloudinary"
 import {authOptions} from "@/lib/authOptions";
 
 export async function createMovie(formData: FormData) {
   try {
-    const session = await getServerSession(authOptions)
-    // @ts-ignore
-    if (!session || session.user.role !== "admin") {
-      return { error: "Unauthorized" }
-    }
+    // const session = await getServerSession(authOptions)
+    // // @ts-ignore
+    // if (!session || session.user.role !== "admin") {
+    //   return { error: "Unauthorized" }
+    // }
 
     await connectToDatabase()
 
@@ -125,11 +125,11 @@ if (typeof rawGenres === "string") {
 
 export async function updateMovie(id: string, formData: FormData) {
   try {
-    const session = await getServerSession(authOptions)
-// @ts-ignore
-    if (!session || session.user.role !== "admin") {
-      return { error: "Unauthorized" }
-    }
+//     const session = await getServerSession(authOptions)
+// // @ts-ignore
+//     if (!session || session.user.role !== "admin") {
+//       return { error: "Unauthorized" }
+//     }
 
     await connectToDatabase()
 
@@ -244,11 +244,11 @@ export async function updateMovie(id: string, formData: FormData) {
 
 export async function deleteMovie(id: string) {
   try {
-    const session = await getServerSession(authOptions)
-// @ts-ignore
-    if (!session || session.user.role !== "admin") {
-      return { error: "Unauthorized" }
-    }
+//     const session = await getServerSession(authOptions)
+// // @ts-ignore
+//     if (!session || session.user.role !== "admin") {
+//       return { error: "Unauthorized" }
+//     }
 
     await connectToDatabase()
 

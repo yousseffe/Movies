@@ -2,9 +2,9 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Plus, Pencil, Trash2 } from "lucide-react"
 import Link from "next/link"
-import { getGenres, deleteGenre } from "@/app/actions/genre"
+// import { getGenres, deleteGenre } from "@/app/actions/genre"
+import {getGenres , deleteGenre} from "@/lib/actions/genre"
 import { revalidatePath } from "next/cache"
-import  Genre  from "@/models/Genre"
 export default async function GenrePage() {
   const result = await getGenres()
   const genres  = result.success ? result.data : []
@@ -44,7 +44,7 @@ export default async function GenrePage() {
               <tbody className="[&_tr:last-child]:border-0">
                 {genres.map((genre) => (
                   <tr
-                    key={genre._id}
+                    key={genre.id}
                     className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
                   >
                     <td className="p-4 align-middle">{genre.nameEnglish}</td>
@@ -68,12 +68,12 @@ export default async function GenrePage() {
                           className="h-8 gap-1 text-blue-500 border-blue-500 hover:bg-blue-50 hover:text-blue-600 dark:hover:bg-blue-950"
                           asChild
                         >
-                          <Link href={`/admin/genre/edit/${genre._id}`}>
+                          <Link href={`/admin/genre/edit/${genre.id}`}>
                             <Pencil className="h-3.5 w-3.5" />
                             <span>Edit</span>
                           </Link>
                         </Button>
-                        <form action={handleDelete.bind(null, genre._id)}>
+                        <form action={handleDelete.bind(null, genre.id)}>
                           <Button
                             variant="outline"
                             size="sm"

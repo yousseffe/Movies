@@ -11,8 +11,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea"
 import { Upload, Plus, Trash2, LinkIcon, ArrowLeft } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
-import { getMovie, updateMovie } from "@/app/actions/movie"
-import { getGenres } from "@/app/actions/genre"
+import { getMovie, updateMovie } from "@/lib/actions/movie"
+import { getGenres } from "@/lib/actions/genre"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { AlertCircle } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -78,7 +78,7 @@ export default function EditMoviePage() {
 
         // Set selected genres
         if (movie.genres && Array.isArray(movie.genres)) {
-          setSelectedGenres(movie.genres.map((g: any) => g._id || g))
+          setSelectedGenres(movie.genres.map((g: any) => g.id || g))
         }
 
         // Format videos
@@ -364,7 +364,7 @@ export default function EditMoviePage() {
               <Label htmlFor="genres">Genres</Label>
               <div className="border rounded-md p-2 max-h-[150px] overflow-y-auto">
                 {genresList.map((genre) => (
-                  <div key={genre._id} className="flex items-center space-x-2 mb-2">
+                  <div key={genre.id} className="flex items-center space-x-2 mb-2">
                     <input
                       type="checkbox"
                       id={`genre-${genre._id}`}

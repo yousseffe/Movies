@@ -10,8 +10,8 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { Upload, Plus, Trash2, Film, LinkIcon } from "lucide-react"
-import { createMovie } from "@/app/actions/movie"
-import { getGenres } from "@/app/actions/genre"
+import { createMovie } from "@/lib/actions/movie"
+import { getGenres } from "@/lib/actions/genre"
 
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { AlertCircle } from "lucide-react"
@@ -247,15 +247,15 @@ export default function CreateMoviePage() {
               <Label htmlFor="genres">Genres</Label>
               <div className="border rounded-md p-2 max-h-[150px] overflow-y-auto">
                 {genres.map((genre) => (
-                  <div key={genre._id} className="flex items-center space-x-2 mb-2">
+                  <div key={genre.id} className="flex items-center space-x-2 mb-2">
                     <input
                       type="checkbox"
-                      id={`genre-${genre._id}`}
+                      id={`genre-${genre.id}`}
                       name="genres"
-                      value={genre._id}
+                      value={genre.id}
                       className="h-4 w-4 rounded border-gray-300"
                     />
-                    <Label htmlFor={`genre-${genre._id}`} className="text-sm font-normal">
+                    <Label htmlFor={`genre-${genre.id}`} className="text-sm font-normal">
                       {genre.nameEnglish}
                     </Label>
                   </div>

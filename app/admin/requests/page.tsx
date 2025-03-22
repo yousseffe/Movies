@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getMovieRequests } from "@/app/actions/movie-request";
+import { getMovieRequests } from "@/lib/actions/movie-request";
 import { RequestList } from "@/components/admin/request-list";
 
 export default function AdminRequestsPage() {

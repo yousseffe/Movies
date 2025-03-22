@@ -1,5 +1,5 @@
 "use client"
-import { getMovie } from "@/app/actions/movie"
+import { getMovie } from "@/lib/actions/movie"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -21,9 +21,11 @@ export default function MovieDetailsPage() {
       try {
         // @ts-ignore
         const result = await getMovie(id)
+
         if (result.success) {
           setMovie(result.data)
           // Set the first video as active if available
+          // @ts-ignore
           if (result.data?.videos?.length > 0) {
             setActiveVideo(result.data.videos[0].url)
           }
@@ -285,7 +287,7 @@ export default function MovieDetailsPage() {
                           {movie.genres && movie.genres.length > 0 ? (
                             movie.genres.map((genre, index) => (
                               <span
-                                key={index}
+                                key={genre.id || index}
                                 className="inline-flex items-center rounded-full bg-muted px-2.5 py-0.5 text-xs font-semibold"
                               >
                                 {genre.nameEnglish || genre}
@@ -344,11 +346,11 @@ export default function MovieDetailsPage() {
                         <h3 className="text-lg font-medium mb-2">Videos</h3>
                         <div className="space-y-4">
                           {movie.videos && movie.videos.length > 0 ? (
-                            movie.videos.map((video) => {
+                            movie.videos.map((video,index) => {
                               const videoInfo = getVideoType(video.url)
                               return (
                                 <div
-                                  key={video._id}
+                                  key={video.id || index}
                                   className="flex items-center justify-between rounded-md border p-4"
                                 >
                                   <div>

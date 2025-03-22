@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Plus, Pencil, Trash2, Eye } from "lucide-react"
 import Link from "next/link"
-import { getMovies, deleteMovie, getMovies2 } from "@/app/actions/movie"
+import { getMovies, deleteMovie } from "@/lib/actions/movie"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { AlertCircle } from "lucide-react"
 import type { IMovie } from "@/models/Movie" // Import the movie type
@@ -20,6 +20,8 @@ export default function MoviesPage() {
       try {
         const result = await getMovies()
         if (result.success) {
+          console.log(result.data)
+          // @ts-ignore
           setMovies(result.data)
         } else {
           setError(result.error || "Failed to fetch movies")
@@ -94,8 +96,7 @@ export default function MoviesPage() {
                 {movies.map((movie) => (
 
                   <tr
-                      // @ts-ignore
-                    key={movie._id}
+                    key={movie.id}
                     className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
                   >
                     <td className="p-4 align-middle">{movie.titleEnglish}</td>
@@ -118,7 +119,7 @@ export default function MoviesPage() {
                           className="h-8 gap-1 text-green-500 border-green-500 hover:bg-green-50 hover:text-green-600 dark:hover:bg-green-950"
                           asChild
                         >
-                          <Link href={`/admin/movies/${movie._id}`}>
+                          <Link href={`/admin/movies/${movie.id}`}>
                             <Eye className="h-3.5 w-3.5" />
                             <span>View</span>
                           </Link>
@@ -129,7 +130,7 @@ export default function MoviesPage() {
                           className="h-8 gap-1 text-blue-500 border-blue-500 hover:bg-blue-50 hover:text-blue-600 dark:hover:bg-blue-950"
                           asChild
                         >
-                          <Link href={`/admin/movies/edit/${movie._id}`}>
+                          <Link href={`/admin/movies/edit/${movie.id}`}>
                             <Pencil className="h-3.5 w-3.5" />
                             <span>Edit</span>
                           </Link>
@@ -139,7 +140,7 @@ export default function MoviesPage() {
                           size="sm"
                           className="h-8 gap-1 text-red-500 border-red-500 hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-950"
                             // @ts-ignore
-                          onClick={() => handleDelete(movie._id)}
+                          onClick={() => handleDelete(movie.id)}
                         >
                           <Trash2 className="h-3.5 w-3.5" />
                           <span>Delete</span>

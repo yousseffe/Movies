@@ -7,8 +7,10 @@ export async function middleware(request: NextRequest) {
 
   // Check if the path starts with /admin
   if (request.nextUrl.pathname.startsWith("/admin")) {
+    console.log("Admin path accessed")
     // If not logged in or not an admin, redirect to login
     if (!token || token.role !== "admin") {
+      console.log(token.role)
       const url = new URL("/login", request.url)
       url.searchParams.set("callbackUrl", request.url)
       return NextResponse.redirect(url)

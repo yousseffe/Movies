@@ -2,7 +2,7 @@
 
 import connectToDatabase from "@/lib/mongodb"
 import Genre from "@/models/Genre"
-import { getServerSession } from "next-auth"
+// import { getServerSession } from "next-auth"
 
 import { revalidatePath } from "next/cache"
 import { generatePrimeSync } from "node:crypto"
@@ -10,7 +10,7 @@ import {authOptions} from "@/lib/authOptions";
 
 export async function createGenre(formData: FormData) {
   try {
-    const session = await getServerSession(authOptions)
+    // const session = await getServerSession(authOptions)
     // @ts-ignore
     if (!session || session.user.role !== "admin") {
       return { error: "Unauthorized" }
@@ -50,11 +50,11 @@ export async function createGenre(formData: FormData) {
 
 export async function updateGenre(id: string, formData: FormData) {
   try {
-    const session = await getServerSession(authOptions)
-// @ts-ignore
-    if (!session || session.user.role !== "admin") {
-      return { error: "Unauthorized" }
-    }
+//     const session = await getServerSession(authOptions)
+// // @ts-ignore
+//     if (!session || session.user.role !== "admin") {
+//       return { error: "Unauthorized" }
+//     }
 
     await connectToDatabase()
 
@@ -91,11 +91,11 @@ export async function updateGenre(id: string, formData: FormData) {
 
 export async function deleteGenre(id: string) {
   try {
-    const session = await getServerSession(authOptions)
-// @ts-ignore
-    if (!session || session.user.role !== "admin") {
-      return { error: "Unauthorized" }
-    }
+//     const session = await getServerSession(authOptions)
+// // @ts-ignore
+//     if (!session || session.user.role !== "admin") {
+//       return { error: "Unauthorized" }
+//     }
 
     await connectToDatabase()
 // @ts-ignore

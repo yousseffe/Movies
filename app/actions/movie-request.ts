@@ -1,6 +1,6 @@
 "use server"
 import { z } from "zod"
-import { getServerSession } from "next-auth/next"
+// import { getServerSession } from "next-auth/next"
 import connectToDatabase from "@/lib/mongodb"
 import MovieRequest from "@/models/MovieRequest"
 import User from "@/models/User"
@@ -13,10 +13,10 @@ const requestSchema = z.object({
 
 export async function createMovieRequest(data: z.infer<typeof requestSchema>) {
   try {
-    const session = await getServerSession(authOptions)
-    if (!session) {
-      return { error: "You must be logged in to request a movie" }
-    }
+    // const session = await getServerSession(authOptions)
+    // if (!session) {
+    //   return { error: "You must be logged in to request a movie" }
+    // }
 
     const validatedData = requestSchema.parse(data)
 
@@ -44,7 +44,7 @@ export async function createMovieRequest(data: z.infer<typeof requestSchema>) {
 
 export async function getMovieRequests() {
   try {
-    const session = await getServerSession(authOptions)
+    // const session = await getServerSession(authOptions)
     // @ts-ignore
     if (!session || session.user.role !== "admin") {
       throw new Error("Unauthorized")
@@ -63,7 +63,7 @@ export async function getMovieRequests() {
 
 export async function updateMovieRequest(id: string, data: { status: string; adminResponse: string }) {
   try {
-    const session = await getServerSession(authOptions)
+    // const session = await getServerSession(authOptions)
     // @ts-ignore
     if (!session || session.user.role !== "admin") {
       return { error: "Unauthorized" }
@@ -110,10 +110,10 @@ export async function updateMovieRequest(id: string, data: { status: string; adm
 
 export async function requestMovie(movieId: string , movieName: string) {
   try {
-    const session = await getServerSession(authOptions)
-    if (!session) {
-      return { error: "You must be logged in to request movie access" }
-    }
+    // const session = await getServerSession(authOptions)
+    // if (!session) {
+    //   return { error: "You must be logged in to request movie access" }
+    // }
 
     await connectToDatabase()
 
@@ -133,7 +133,7 @@ export async function requestMovie(movieId: string , movieName: string) {
     }
     // @ts-ignore
     user.requestMovies.push(movieId)
-    user.markModified("requestMovies") 
+    user.markModified("requestMovies")
       await user.save()
     return { success: true }
   } catch (error) {
@@ -144,10 +144,10 @@ export async function requestMovie(movieId: string , movieName: string) {
 
 export async function checkMovieAccess(movieId: string) {
   try {
-    const session = await getServerSession(authOptions)
-    if (!session) {
-      return { hasAccess: false }
-    }
+    // const session = await getServerSession(authOptions)
+    // if (!session) {
+    //   return { hasAccess: false }
+    // }
 
     await connectToDatabase()
 
@@ -176,10 +176,10 @@ export async function checkMovieAccess(movieId: string) {
 
 export async function checkRequested(movieId: string) {
   try {
-    const session = await getServerSession(authOptions)
-    if (!session) {
-      return { hasAccess: false }
-    }
+    // const session = await getServerSession(authOptions)
+    // if (!session) {
+    //   return { hasAccess: false }
+    // }
     await connectToDatabase()
     // @ts-ignore
     const user = await User.findById(session.user.id)
