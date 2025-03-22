@@ -16,7 +16,6 @@ export const signInWithCredentials = async (
   params: Pick<AuthCredentials, "email" | "password">,
 ) => {
   const { email, password } = params;
-  console.log("Signin with credentials", { email, password });
   const ip = (await headers()).get("x-forwarded-for") || "127.0.0.1";
   console.log(ip)
   const { success } = await ratelimit.limit(ip);
