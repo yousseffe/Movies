@@ -1,14 +1,14 @@
-import NextAuth, { User } from "next-auth";
+import NextAuth from "next-auth";
 import { compare } from "bcryptjs";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { db } from "@/database/drizzle";
 import { users } from "@/database/schema";
 import { eq } from "drizzle-orm";
-
 export const { handlers, signIn, signOut, auth } = NextAuth({
   session: {
     strategy: "jwt",
   },
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -50,15 +50,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     }),
   ],
   pages: {
-    signIn: "/sign-in",
+    signIn: "/login",
+    error: "/login",
   },
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user  }) {
       if (user) {
         token.id = user.id;
-        token.name = user.name;
+        // token.name = user.name;
         // @ts-ignore
-        token.role = user.role; // Store role in JWT
+        token.role = user.role as string;  // Store role in JWT
       }
       return token;
     },
@@ -66,7 +67,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       if (session.user) {
         // @ts-ignore
         session.user.id = token.id as string;
-        session.user.name = token.name as string;
+        // session.user.name = token.name as string;
         // @ts-ignore
         session.user.role = token.role as string; // Store role in session
       }
