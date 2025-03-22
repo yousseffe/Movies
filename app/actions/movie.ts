@@ -399,7 +399,8 @@ export async function getMovies(params: GetMoviesParams = {}) { // Default empty
       .sort(sortOptions)
       .skip(skip)
       .limit(validatedLimit)
-      .populate("genres")
+      .select("titleEnglish titleArabic year poster status ")
+      // .populate("genres")
       .lean();
 
     return { success: true, data: JSON.parse(JSON.stringify(movies)) };
